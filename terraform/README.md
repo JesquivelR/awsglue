@@ -256,15 +256,15 @@ module "data_platform_dev" {
 2. **Entorno de Producción**
 
 ```hcl
-module "data_platform_dev" {
-    source = "./data_platform_module"
+module "data_platform_prod" { #Se cambia el nombre del módulo
+    source = "./data_platform_module" #Se usa el mismo origen
     
     environment = "prod" #Se cambia el valor de environment
     company     = "handytec"
     project     = "data_platform"
 }
 ```
-Simplemente en el archivo [main.tf](main.tf) agregaríamos nuevamente la sección de `module` debajo del que ya existe pero cambiando el valor de `environment`.
+Simplemente en el archivo [main.tf](main.tf) agregaríamos nuevamente la sección de `module` debajo del que ya existe pero cambiando el nombre del modulo y valor de `environment`.
 
 ## Pruebas
 
@@ -281,6 +281,7 @@ Una vez desplegada la infraestructura podemos probar el integrador de datos subi
 3. **Ir a AWS Glue luego a Crawlers, seleccionar el crawler y  ejecutar**
 
 ![alt text](./imagenes/crawler.png)
+![alt text](image.png)
 
 **Esperar a que termine de correr el crawler**
 
